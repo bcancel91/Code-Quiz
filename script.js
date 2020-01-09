@@ -12,37 +12,37 @@ var myQuestions = [
       correctAnswer: "A programming language"
     },
     {
-      question: "What can cannot be a varibale name?",
+      question: "What cannot be a varibale name?",
       answers: [
-        "Car",
-        "Name",
-        "question",
-        "Function"
+        "car",
+        "carType",
+        "_question",
+        "function"
       ],
       correctAnswer: "d"
     },
     {
-      question: "Inside which HTML element do we put the JavaScript?",
+      question: "Inside which HTML element do we place JavaScript code?",
       answers: [
         "script",
-        "<js>",
-        "<script>",
-        "<Javascript>"
+        "< js >",
+        "< script >",
+        "< Javascript >"
       ],
       correctAnswer: "c"
     },
     {
-      question: "Which is a javascript librerary?",
+      question: "Which is a JavaScript library?",
       answers: [
          "CSS",
          "HTML",
          "Python",
-         "jQuery"
+         "JQuery"
       ],
       correctAnswer: "d"
     },
     {
-      question: "Which is used to to interact with the user?",
+      question: "Which is used for user input?",
       answers: [
         "prompt",
         "console.log",
@@ -52,11 +52,11 @@ var myQuestions = [
       correctAnswer: "a"
     },
     {
-      question: "How do you create a function in JavaScript?",
+      question: "Which is used to create a function in JavaScript?",
       answers: [
         "function myFunction()",
-        "<myFunction()>",
-        "function(myFunc{tion)",
+        "< myFunction() >",
+        "function(myfunction)",
         "function = myFunction()"
       ],
       correctAnswer: "a"
@@ -68,7 +68,7 @@ var interval;
 var currentQuestion;
 var questionIndex = myQuestions[0].question;
 
-//console.log(questionIndex);
+
 var currentAnswer;
 var score = 0;
 
@@ -85,7 +85,7 @@ $("li").hide()
 
     $("#quizTimer").text(currentTime); 
 
-   if(currentTime === 0){
+   if(currentTime <= 0){
 
      clearInterval(interval);
 
@@ -108,24 +108,95 @@ $("li").hide()
     $("#result").text("Correct!");
 
     score ++;
-    changeQuestion()
+    setTimeout(() => {changeQuestion2(); }, 500)
+
+    
+  })
+    
+    $(".wrong").on("click", function(){
+
+      currentTime = currentTime - 15;
+  
+      $("#result").text("Wrong!");
+      setTimeout(() => { changeQuestion2(); }, 500)
+
+    
+  
+    
+    })
     
 
   
-  })
-  $(".wrong").on("click", function(){
-
-    currentTime = currentTime - 15;
-
-    $("#result").text("Wrong!");
-    changeQuestion()
-    
-
-  })
-
-  function changeQuestion(){
-
+  
+  
+  function changeQuestion2(){
+    $("#result").text("");
     currentQuestion = myQuestions[1];
+
+    $("#quiz").text(currentQuestion.question);
+   
+    $("#a").replaceWith("<li id='a'><button class='wrong'>" + currentQuestion.answers[0] + "</button></li>");
+    $("#b").replaceWith("<li id='b'><button class='wrong'>" + currentQuestion.answers[1] + "</button></li>");
+    $("#c").replaceWith("<li id='c'><button class='wrong'>" + currentQuestion.answers[2] + "</button></li>");
+    $("#d").replaceWith("<li id='d'><button class='correct'>" + currentQuestion.answers[3] + "</button></li>");
+    
+     
+     $(".correct").on("click", function(){
+      $("#result").text("Correct!");
+  
+      score ++;
+      setTimeout(() => {changeQuestion3(); }, 500)
+
+    })
+      
+      $(".wrong").on("click", function(){
+  
+        currentTime = currentTime - 15;
+    
+        $("#result").text("Wrong!");
+        setTimeout(() => { changeQuestion3(); }, 500)
+        
+      })
+      
+  }
+   
+  function changeQuestion3(){
+    $("#result").text("");
+    currentQuestion = myQuestions[2];
+
+    $("#quiz").text(currentQuestion.question);
+   
+    
+    $("#a").replaceWith("<li id='a'><button class='wrong'>" + currentQuestion.answers[0] + "</button></li>");
+    $("#b").replaceWith("<li id='b'><button class='wrong'>" + currentQuestion.answers[1] + "</button></li>");
+    $("#c").replaceWith("<li id='c'><button class='correct'>" + currentQuestion.answers[2] + "</button></li>");
+    $("#d").replaceWith("<li id='d'><button class='wrong'>" + currentQuestion.answers[3] + "</button></li>");
+    
+     $(".correct").on("click", function(){
+      $("#result").text("Correct!");
+  
+      score ++;
+      setTimeout(() => {changeQuestion4(); }, 500)
+
+
+    })
+      
+      $(".wrong").on("click", function(){
+  
+        currentTime = currentTime - 15;
+    
+        $("#result").text("Wrong!");
+       setTimeout(() => { changeQuestion4(); }, 500)
+        
+    
+      
+      })
+      
+
+  }
+  function changeQuestion4(){
+    $("#result").text("");
+    currentQuestion = myQuestions[3];
 
     $("#quiz").text(currentQuestion.question);
    
@@ -135,24 +206,104 @@ $("li").hide()
     $("#c").replaceWith("<li id='c'><button class='wrong'>" + currentQuestion.answers[2] + "</button></li>");
     $("#d").replaceWith("<li id='d'><button class='correct'>" + currentQuestion.answers[3] + "</button></li>");
     
-     $("#result").text("");
- 
+     $(".correct").on("click", function(){
+      $("#result").text("Correct!");
   
+      score ++;
+     setTimeout(() => {changeQuestion5(); }, 500)
+     
+
+    })
+      
+      $(".wrong").on("click", function(){
   
-
-
-
-
-
-
-
-
-
-
-
-
+        currentTime = currentTime - 15;
+    
+        $("#result").text("Wrong!");
+      setTimeout(() => { changeQuestion5(); }, 500)
+        
+    
+      
+      })
+      
 
   }
+
+  function changeQuestion5(){
+    $("#result").text("");
+    currentQuestion = myQuestions[4];
+
+    $("#quiz").text(currentQuestion.question);
+   
+    
+    $("#a").replaceWith("<li id='a'><button class='wrong'>" + currentQuestion.answers[0] + "</button></li>");
+    $("#b").replaceWith("<li id='b'><button class='wrong'>" + currentQuestion.answers[1] + "</button></li>");
+    $("#c").replaceWith("<li id='c'><button class='wrong'>" + currentQuestion.answers[2] + "</button></li>");
+    $("#d").replaceWith("<li id='d'><button class='correct'>" + currentQuestion.answers[3] + "</button></li>");
+    
+     $(".correct").on("click", function(){
+      $("#result").text("Correct!");
+  
+      score ++;
+     setTimeout(() => {changeQuestion6(); }, 500)
+     
+
+    })
+      
+      $(".wrong").on("click", function(){
+  
+        currentTime = currentTime - 15;
+    
+        $("#result").text("Wrong!");
+      setTimeout(() => { changeQuestion6(); }, 500)
+        
+    
+      
+      })
+      
+
+  }
+
+  function changeQuestion6(){
+    $("#result").text("");
+    currentQuestion = myQuestions[5];
+
+    $("#quiz").text(currentQuestion.question);
+   
+    
+    $("#a").replaceWith("<li id='a'><button class='correct'>" + currentQuestion.answers[0] + "</button></li>");
+    $("#b").replaceWith("<li id='b'><button class='wrong'>" + currentQuestion.answers[1] + "</button></li>");
+    $("#c").replaceWith("<li id='c'><button class='wrong'>" + currentQuestion.answers[2] + "</button></li>");
+    $("#d").replaceWith("<li id='d'><button class='wrong'>" + currentQuestion.answers[3] + "</button></li>");
+    
+     $(".correct").on("click", function(){
+      $("#result").text("Correct!");
+  
+      score ++;
+    // setTimeout(() => {changeQuestion7(); }, 500)
+     
+
+    })
+      
+      $(".wrong").on("click", function(){
+  
+        currentTime = currentTime - 15;
+    
+        $("#result").text("Wrong!");
+     // setTimeout(() => { changeQuestion7(); }, 500)
+        
+    
+      
+      })
+      
+
+  }
+
+
+
+
+
+
  
 
 }) 
@@ -168,68 +319,3 @@ $("li").hide()
 
 
 })
-
-/*
-
-    dispQues();
-  
- 
-
-function dispQues(){
-  
-var currentQuestion = myQuestions[quesIndex].question;
-   
-
- document.getElementById("quiz").innerHTML = currentQuestion;
- $("#choices").empty();
-
-  for(var i = 0; i < myQuestions[quesIndex].answers.length; i++){
-    
-    $("#choices").append("<li><button class='btn-lg rounded-pill ans' name='"+myQuestions[quesIndex].answers[i]+"'>"+ myQuestions[quesIndex].answers[i]+ " </button></li>"); 
-    }
-}
-
-
-$(".ans").on("click",function(e){
-  
-  quesIndex++;
- 
-  if(this.name===myQuestions[quesIndex].correctAnswer){
-    correct++;
-    dispQues();
-  }
-  else{
-    currentTime = currentTime - 10;
-    $("#quizTimer").text(currentTime); 
-    dispQues();
-  }
-})
-
-  
-*/
-
- 
-   
-   
-
- 
- 
-
-
-/*
- 
-  
-  
-  $("li").on("click", function(){
-
-  $("li").hide();
-
-  })
-
-    
-
-
-    
-
-
-*/
