@@ -66,9 +66,11 @@ var myQuestions = [
 var currentTime = 90;
 var interval;
 var currentQuestion;
-var questionIndex;
+var questionIndex = myQuestions[0].question;
+
+//console.log(questionIndex);
 var currentAnswer;
-var score;
+var score = 0;
 
  
 $("li").hide()
@@ -92,7 +94,7 @@ $("li").hide()
    
     currentQuestion = myQuestions[0];
   
-    $("#quiz").text(currentQuestion.question);
+    $("#quiz").text(myQuestions[0].question);
    
  
    $("#a").append("<button class='correct'>" + currentQuestion.answers[0] + "</button>");
@@ -101,10 +103,59 @@ $("li").hide()
    $("#d").append("<button class='wrong'>" + currentQuestion.answers[3] + "</button>");
    $("li").show()
 
+
+   $(".correct").on("click", function(){
+    $("#result").text("Correct!");
+
+    score ++;
+    changeQuestion()
+    
+
+  
+  })
+  $(".wrong").on("click", function(){
+
+    currentTime = currentTime - 15;
+
+    $("#result").text("Wrong!");
+    changeQuestion()
+    
+
+  })
+
+  function changeQuestion(){
+
+    currentQuestion = myQuestions[1];
+
+    $("#quiz").text(currentQuestion.question);
+   
+    
+    $("#a").replaceWith("<li id='a'><button class='wrong'>" + currentQuestion.answers[0] + "</button></li>");
+    $("#b").replaceWith("<li id='b'><button class='wrong'>" + currentQuestion.answers[1] + "</button></li>");
+    $("#c").replaceWith("<li id='c'><button class='wrong'>" + currentQuestion.answers[2] + "</button></li>");
+    $("#d").replaceWith("<li id='d'><button class='correct'>" + currentQuestion.answers[3] + "</button></li>");
+    
+     $("#result").text("");
+ 
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+ 
+
 }) 
-
-
-
 
 
   
