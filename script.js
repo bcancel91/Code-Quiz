@@ -70,15 +70,16 @@ var questionIndex = myQuestions[0].question;
 
 
 var currentAnswer;
-var score = 0;
 
+score = 0;
  
 $("li").hide()
 
   $("#startButton").click(function(){
-
+   
   $(this).hide();
   $("h1").hide();
+  $("#score").text(score);
 
   interval = setInterval(function(){
 
@@ -88,7 +89,9 @@ $("li").hide()
 
    if(currentTime <= 0){
 
+
      clearInterval(interval);
+    $("#quiz").text("")
 
    } },1000);
    
@@ -104,11 +107,15 @@ $("li").hide()
    $("#d").append("<button class='wrong'>" + currentQuestion.answers[3] + "</button>");
    $("li").show()
 
-
+  
    $(".correct").on("click", function(){
     $("#result").append("<hr>" + 'Correct!');
+    
+    
+   score = score +3;
+   $("#score").text(score)
+   
 
-    score ++;
     setTimeout(() => {changeQuestion2(); }, 500)
 
     
@@ -117,6 +124,7 @@ $("li").hide()
     $(".wrong").on("click", function(){
 
       currentTime = currentTime - 15;
+      score --;
   
       $("#result").append("<hr>" + 'Wrong!');
    setTimeout(() => { changeQuestion2(); }, 500)
@@ -145,7 +153,7 @@ $("li").hide()
      $(".correct").on("click", function(){
       $("#result").append("<hr>" + 'Correct!');
   
-      score ++;
+      score +3 ;
       setTimeout(() => {changeQuestion3(); }, 500)
 
     })
