@@ -13,27 +13,60 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <style>
+      a {
+          color: rgb(167, 97, 177);
+
+      }
+    .wrong, .correct, #startButton {
+      background-color: rgb(167, 97, 177);
+      border: none;
+      color: black;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 16px;
+    }
+    
+    .wrong:hover, .correct:hover , #startButton:hover {
+      background-color: grey;
+      transform: scale(0.9);
+    }
+
+    #quiz {
+        font-weight: bold;
+        font-size: 30px;
+    }
+   
+    </style>
 </head>
 <body>
-    <div class="d-flex justify-content-between" id="viewSore">
+    <div class="d-flex justify-content-between" id="viewScore">
         <a href="#">View HighScores</a>
     
-        <h1 >Time: <span id="quizTimer">00</span></h1>
+        <h5>Time: <span id="quizTimer">00</span></h5>
     </div>
     
-        <div class="row d-flex justify-content-center" id="quiz" class="container">
+        <div class="row d-flex justify-content-center mb-3" id="quiz" class="container">
             </div>
             <div class="row d-flex justify-content-center">
-            <ol id="choices" type="a">
+            <ol id="choices" type="numbers">
                 <li id="a"></li>
                 <li id="b"></li>
                 <li id="c"></li>
                 <li id="d"></li>
-                <hr>
+                
                 <p id="result"></p>
             </ol>
        </div>
-       <div class="row d-flex justify-content-center">
+       <div class="row d-flex align-items-center justify-content-center">
+           <h1>Coding Quiz Challenge</h1>
+       </div>
+       <div class="row d-flex align-items-center justify-content-center">
             <button class="btn-lg" id="startButton">Start Quiz</button>
         
        </div>

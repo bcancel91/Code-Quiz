@@ -78,6 +78,7 @@ $("li").hide()
   $("#startButton").click(function(){
 
   $(this).hide();
+  $("h1").hide();
 
   interval = setInterval(function(){
 
@@ -105,7 +106,7 @@ $("li").hide()
 
 
    $(".correct").on("click", function(){
-    $("#result").text("Correct!");
+    $("#result").append("<hr>" + 'Correct!');
 
     score ++;
     setTimeout(() => {changeQuestion2(); }, 500)
@@ -117,8 +118,8 @@ $("li").hide()
 
       currentTime = currentTime - 15;
   
-      $("#result").text("Wrong!");
-      setTimeout(() => { changeQuestion2(); }, 500)
+      $("#result").append("<hr>" + 'Wrong!');
+   setTimeout(() => { changeQuestion2(); }, 500)
 
     
   
@@ -142,7 +143,7 @@ $("li").hide()
     
      
      $(".correct").on("click", function(){
-      $("#result").text("Correct!");
+      $("#result").append("<hr>" + 'Correct!');
   
       score ++;
       setTimeout(() => {changeQuestion3(); }, 500)
@@ -153,8 +154,8 @@ $("li").hide()
   
         currentTime = currentTime - 15;
     
-        $("#result").text("Wrong!");
-        setTimeout(() => { changeQuestion3(); }, 500)
+        $("#result").append("<hr>" + 'Wrong!');
+        setTimeout(() => {changeQuestion3(); }, 500)
         
       })
       
@@ -173,7 +174,7 @@ $("li").hide()
     $("#d").replaceWith("<li id='d'><button class='wrong'>" + currentQuestion.answers[3] + "</button></li>");
     
      $(".correct").on("click", function(){
-      $("#result").text("Correct!");
+      $("#result").append("<hr>" + 'Correct!');
   
       score ++;
       setTimeout(() => {changeQuestion4(); }, 500)
@@ -185,7 +186,7 @@ $("li").hide()
   
         currentTime = currentTime - 15;
     
-        $("#result").text("Wrong!");
+        $("#result").append("<hr>" + 'Wrong!');
        setTimeout(() => { changeQuestion4(); }, 500)
         
     
@@ -207,7 +208,7 @@ $("li").hide()
     $("#d").replaceWith("<li id='d'><button class='correct'>" + currentQuestion.answers[3] + "</button></li>");
     
      $(".correct").on("click", function(){
-      $("#result").text("Correct!");
+      $("#result").append("<hr>" + 'Correct!');
   
       score ++;
      setTimeout(() => {changeQuestion5(); }, 500)
@@ -219,7 +220,7 @@ $("li").hide()
   
         currentTime = currentTime - 15;
     
-        $("#result").text("Wrong!");
+        $("#result").append("<hr>" + 'Wrong!');
       setTimeout(() => { changeQuestion5(); }, 500)
         
     
@@ -242,7 +243,7 @@ $("li").hide()
     $("#d").replaceWith("<li id='d'><button class='correct'>" + currentQuestion.answers[3] + "</button></li>");
     
      $(".correct").on("click", function(){
-      $("#result").text("Correct!");
+      $("#result").append("<hr>" + 'Correct!');
   
       score ++;
      setTimeout(() => {changeQuestion6(); }, 500)
@@ -254,7 +255,7 @@ $("li").hide()
   
         currentTime = currentTime - 15;
     
-        $("#result").text("Wrong!");
+        $("#result").append("<hr>" + 'Wrong!');
       setTimeout(() => { changeQuestion6(); }, 500)
         
     
@@ -277,7 +278,7 @@ $("li").hide()
     $("#d").replaceWith("<li id='d'><button class='wrong'>" + currentQuestion.answers[3] + "</button></li>");
     
      $(".correct").on("click", function(){
-      $("#result").text("Correct!");
+      $("#result").append("<hr>" + 'Correct!');
   
       score ++;
     // setTimeout(() => {changeQuestion7(); }, 500)
@@ -289,7 +290,7 @@ $("li").hide()
   
         currentTime = currentTime - 15;
     
-        $("#result").text("Wrong!");
+        $("#result").append("<hr>" + 'Wrong!');
      // setTimeout(() => { changeQuestion7(); }, 500)
         
     
